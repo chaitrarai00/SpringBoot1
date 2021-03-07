@@ -1,6 +1,9 @@
 package com.example.repo;
 
+
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.example.model.Employee;
@@ -35,6 +38,10 @@ public class EmployeeRepository implements ObjectRepository<Employee>{
 		Employee e=repository.get(id);
 		this.repository.remove(id);
 		return e;
+	}
+	
+	public List<Employee> getAll() {
+		return (List<Employee>) repository.values();
 	}
 
 }
