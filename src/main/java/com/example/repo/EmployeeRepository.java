@@ -1,13 +1,17 @@
 package com.example.repo;
 
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.example.model.Employee;
 
+@Repository
 public class EmployeeRepository implements ObjectRepository<Employee>{
 	private Map<Integer,Employee> repository;
 	public EmployeeRepository() {
@@ -41,7 +45,11 @@ public class EmployeeRepository implements ObjectRepository<Employee>{
 	}
 	
 	public List<Employee> getAll() {
-		return (List<Employee>) repository.values();
+		List<Employee> list=new ArrayList<Employee>();
+		for(Employee e:repository.values()) {
+			list.add(e);
+		}
+		return list;
 	}
 
 }
